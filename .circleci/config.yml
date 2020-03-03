@@ -8,7 +8,7 @@ jobs:
       - run:
           name: "'run' statements can actually contain a 'name' and 'command' argument as well"
           command: | 
-          echo "You can even have multiline commands."
+            echo "You can even have multiline commands."
       - restore_cache:
           keys:
           - v1-dependencies-
