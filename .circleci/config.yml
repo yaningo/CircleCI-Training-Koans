@@ -12,7 +12,7 @@ jobs:
       - restore_cache:
           keys:
           - v1-dependencies-
-      - run: mkdir ~/cache/
+      - run: rm -fr ~/cache/;mkdir ~/cache/
       - run: echo "testfile" > ~/cache/log.txt
       - save_cache:
           key: v1-dependencies-
