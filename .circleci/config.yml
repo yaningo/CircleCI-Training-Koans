@@ -6,7 +6,7 @@ jobs:
 
     docker:
 
-      - image: circleci/node
+      - image: postres:latest
 
     steps:
 
