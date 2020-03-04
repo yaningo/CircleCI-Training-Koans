@@ -5,6 +5,7 @@ jobs:
   build:
 
     docker:
+      - image: circleci/node
 
       - image: circleci/postgres:latest
 
