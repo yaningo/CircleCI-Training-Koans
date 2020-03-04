@@ -11,7 +11,7 @@ jobs:
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: db_exe03
-          POSTGRES_HOST_AUTH_METHOD=trust
+          POSTGRES_HOST_AUTH_METHOD:trust
 
     steps:
 
