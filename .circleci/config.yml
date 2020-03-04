@@ -6,7 +6,7 @@ jobs:
 
     docker:
 
-      - image: postgres:latest
+      - image: circleci/postgres:latest
 
     steps:
 
