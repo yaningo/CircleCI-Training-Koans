@@ -8,9 +8,9 @@ jobs:
       - image: circleci/node
 
       - image: circleci/postgres:latest
-           environment:
-                  POSTGRES_USER: root
-                  POSTGRES_DB: db_exe03
+        environment:
+          POSTGRES_USER: root
+          POSTGRES_DB: db_exe03
 
     steps:
 
