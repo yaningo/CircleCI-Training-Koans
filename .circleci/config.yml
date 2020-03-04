@@ -6,7 +6,7 @@ jobs:
 
     docker:
 
-      - image: postres:latest
+      - image: postgres:latest
 
     steps:
 
