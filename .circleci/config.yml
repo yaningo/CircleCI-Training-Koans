@@ -11,7 +11,7 @@ jobs:
         environment:
           POSTGRES_USER: root
           POSTGRES_DB: db_exe03
-          OSTGRES_PASSWORD=passwr0Rd
+          POSTGRES_PASSWORD: passwr0Rd
     steps:
 
       - checkout # check out the code in the project directory
