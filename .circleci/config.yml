@@ -2,34 +2,43 @@ version: 2
 
 jobs:
 
-  build:
+  test:
 
     docker:
+
       - image: circleci/node
 
-      - image: circleci/postgres:latest
-        environment:
-          POSTGRES_USER: root
-          POSTGRES_DB: db_exe03
-          POSTGRES_PASSWORD: passwr0Rd
     steps:
 
-      - checkout # check out the code in the project directory
+      - checkout
 
-      - run: echo "hello world" # run the `echo` command
-
-      - run:
-
-          name: install dockerize # This is a utility that will attempt to connect to a database, in place of an application for this sample.
-
-          command: wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && sudo tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-
-          environment:
-
-            DOCKERIZE_VERSION: v0.3.0
+      # These two tests should run in parallel. Make it so!
 
       - run:
 
-          name: Wait for db # If no database is found in 1 minute the job will fail.
+          name: Run Hello test
 
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: |
+
+            bash src/test_hello.sh
+
+      - run:
+
+          name: Run Goodbye test
+
+          command: |
+
+            bash src/test_goodbye.sh
+
+
+
+workflows:
+
+  version: 2
+
+  test:
+
+    jobs:
+
+      - test
+
