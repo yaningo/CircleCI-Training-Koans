@@ -25,6 +25,7 @@ jobs:
           command: |
             bash src/test_goodbye.sh
 
+version: 2.1
 workflows:
   build_and_test:
     jobs:
