@@ -6,7 +6,7 @@ jobs:
     docker: 
       - image: circleci/node 
     steps:
-      - build-tools/test-results:
+      - build-tools/test-results
           name: Generating test results.
           data-dir: ~/project/results
           upload: true
