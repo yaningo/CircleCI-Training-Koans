@@ -11,3 +11,17 @@ jobs:
           data-dir: ~/project/results
           upload: true
 # Add below this line, do not modify above
+      - checkout
+      - run:
+          name: Run Hello test
+          command: |
+            bash src/test_hello.sh
+      - run:
+          name: Run Goodbye test
+          command: |
+            bash src/test_goodbye.sh
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
