@@ -20,8 +20,3 @@ jobs:
           name: Run Goodbye test
           command: |
             bash src/test_goodbye.sh
-workflows:
-  version: 2
-  test:
-    jobs:
-      - build
