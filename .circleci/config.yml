@@ -15,7 +15,7 @@ jobs:
       - checkout
 
       # These two tests should run in parallel. Make it so!
-
+#
 #      - run:
 #
 #          name: Run Hello test
@@ -32,7 +32,7 @@ jobs:
 #
 #            bash src/test_goodbye.sh
 
-       - run: circleci tests glob "src/*.sh" | circleci tests split
+      - run: circleci tests glob "src/*.sh" | circleci tests split
 
 
 workflows:
