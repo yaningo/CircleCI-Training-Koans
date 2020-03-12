@@ -9,26 +9,9 @@ jobs:
       - build-tools/test-results:
           name: Generating test results.
           data-dir: ~/project/results
-          upload: true
-# Add below this line, do not modify above
-
-jobs:
-  test:
-    steps:
-      - checkout
-      - run:
-          name: Run Hello test
-          command: |
-            bash src/test_hello.sh
-      - run:
-          name: Run Goodbye test
-          command: |
-            bash src/test_goodbye.sh
+      - 
 
 workflows:
-version: 2.1
   build_and_test:
     jobs:
       - build
-      - test
-      
