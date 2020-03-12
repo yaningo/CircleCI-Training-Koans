@@ -7,11 +7,12 @@ jobs:
       - image: circleci/node 
     steps:
       - build-tools/test-results:
-          name: Generating test results.
           data-dir: ~/project/results
 
       - store_tests_results:
           path: ~/project/results/results.xml
+
+      - checkout
 
       - run:
           name: Run Hello test
