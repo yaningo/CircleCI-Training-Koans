@@ -11,6 +11,8 @@ jobs:
 
       - store_test_results:
           path: ~/project/results/jest/junit.xml
+                
+      - store_test_results:
           path: ~/project/results/python/junit.xml
 
 workflows:
