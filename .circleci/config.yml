@@ -15,12 +15,12 @@ jobs:
       - run:
           name: Run Hello test
           command: |
-            bash src/test_hello.sh
+            bash ~/src/test_hello.sh
 
       - run:
           name: Run Goodbye test
           command: |
-            bash src/test_goodbye.sh
+            bash ~/src/test_goodbye.sh
 
 workflows:
   build_and_test:
