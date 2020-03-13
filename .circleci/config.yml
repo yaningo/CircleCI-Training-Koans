@@ -12,16 +12,6 @@ jobs:
       - store_test_results:
           path: ~/project/results/results.xml
 
-      - run:
-          name: Run Hello test
-          command: |
-            bash ~/src/test_hello.sh
-
-      - run:
-          name: Run Goodbye test
-          command: |
-            bash ~/src/test_goodbye.sh
-
 workflows:
   build_and_test:
     jobs:
