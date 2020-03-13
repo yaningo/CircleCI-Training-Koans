@@ -9,7 +9,7 @@ jobs:
       - build-tools/test-results:
           data-dir: ~/project/results
 
-      - store_tests_results:
+      - store_test_results:
           path: ~/project/results/results.xml
 
       - checkout
