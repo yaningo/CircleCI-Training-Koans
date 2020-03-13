@@ -12,8 +12,6 @@ jobs:
       - store_test_results:
           path: ~/project/results/results.xml
 
-      - checkout
-
       - run:
           name: Run Hello test
           command: |
