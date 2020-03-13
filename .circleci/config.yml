@@ -9,6 +9,10 @@ jobs:
       - build-tools/test-results:
           data-dir: ~/project/results
 
+      - store_test_results:
+          path: ~/project/results/jest/junit.xml
+          path: ~/project/results/python/junit.xml
+
 workflows:
   build_and_test:
     jobs:
