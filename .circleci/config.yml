@@ -10,7 +10,7 @@ jobs:
           data-dir: ~/project/results
 
       - store_test_results:
-          path: ~/project/results/results.xml
+          path: ~/project/results/test_results.xml
 
 workflows:
   build_and_test:
