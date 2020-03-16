@@ -33,4 +33,4 @@ workflows:
             - test-production
           filters:
             branches:
-              only: staging
+              only: production
