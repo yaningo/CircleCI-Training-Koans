@@ -25,9 +25,9 @@ workflows:
   build-test-and-deploy:
     jobs:
       - build
-        filters:
-          tags:
-            only: /.*/
+          filters:
+            tags:
+              only: /.*/
       - test:
           requires:
             - build
