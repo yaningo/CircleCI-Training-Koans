@@ -1,17 +1,17 @@
-# CircleCI Training Kōans
+# Fan Out Workflow
 
-> _kōan_ (noun): a paradoxical anecdote or riddle, used in Zen Buddhism to demonstrate the inadequacy of logical reasoning and to provoke enlightenment.
+**Description:**
 
-In this repo, you will find a series of challenges of increasing difficulty related to CircleCI 2.1 configs. There is one challenge per folder; each challenge will include its own instructions via a `README.md`.
+The user is building a Node "NPM" module. Before every release they ensure that the module is compatible with the latest version of Node.js, version 8, and version 6. What the user would like to do is have each Node test run concurrently. `build` should run first, then each Node test at the same time, and finally `deploy` should run last.
 
-# How to follow along?
+**Goals:**
 
-The best way to follow along is to create a new repository on your personal GitHub account for the purpose of running tests. You can copy the config files from each challenge into your own CircleCI project to test if the new config works.
+- Demonsrate a proper "fan out" workflow with concurrent test.
+- Share link to green Workflow.
 
-_side note_: If you come across an issue with a config that isn't directly related to the challenge, consider it a learning opportunity, unless it is related to an underlying change to the platform.
 
-# Keep a log
-
-Each challenge will ask you to record the link to the workflow or job where you have completed the challenge.
-
-Good luck!
+**Help:**
+<details>
+  <summary>Spoiler warning</summary>
+  * https://circleci.com/docs/2.0/workflows/#fan-outfan-in-workflow-example
+</details>
