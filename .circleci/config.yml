@@ -37,6 +37,6 @@ workflows:
       - deploy:
           requires:
             - test
-          filters:
-            tags:
-              only: /.*beta.*/
+        filters:
+          tags:
+            only: /.*beta.*/
