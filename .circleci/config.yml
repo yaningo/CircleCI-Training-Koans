@@ -55,7 +55,7 @@ jobs:
         - attach_workspace:
             at: /tmp/workspaces
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
-            path: app
+            path: /tmp/workspaces/app
             destination: apps
 
 workflows:
