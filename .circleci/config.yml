@@ -1,29 +1,66 @@
 version: 2.1
 jobs:
-  build:
+  build-linux:
     docker:
-      - image: circleci/node
+      - image: node
     steps:
-      - checkout
-      - run: echo "Building complete"
-  test:
+        - run: mkdir -p app/linux
+        - run:
+            name: Generate app
+            command: echo app >> app/linux/app.linux
+        - run: cd ~/project/app && pwd && ls
+          # Edit below here
+        - persist_to_workspace: 
+            root: 
+            paths:
+
+  build-windows:
     docker:
-      - image: circleci/node
+      - image: node # use your imagination, using all linux/docker for ease-of-use
     steps:
-      - run: echo "Testing complete"
+        - run: mkdir -p app/windows
+        - run:
+            name: Generate app
+            command: echo app >> app/windows/app.windows
+        - run: cd ~/project/app && pwd && ls
+          # Edit below here
+        - persist_to_workspace: 
+            root: 
+            paths:
+
+  build-mac:
+      docker:
+        - image: node # use your imagination, using all linux/docker for ease-of-use
+      steps:
+        - run: mkdir -p app/mac
+        - run:
+            name: Generate app
+            command: echo app >> app/mac/app.mac
+        - run: cd ~/project/app && pwd && ls
+          # Edit below here
+        - persist_to_workspace: 
+            root:
+            paths:
+
   deploy:
       docker:
-        - image: circleci/node
+        - image: node
       steps:
-        - run: echo "DEPLOYING" # Make sure tests pass first!
+        - attach_workspace:
+            at: <location>
+        - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
+            path: app
+            destination: apps
+
 workflows:
   version: 2
-  build-test-and-deploy:
+  build_and_deploy:
     jobs:
-      - build
-      - test:
-          requires:
-          - build
+      - build-linux
+      - build-mac
+      - build-windows
       - deploy:
           requires:
-          - test
+            - build-linux
+            - build-mac
+            - build-windows
