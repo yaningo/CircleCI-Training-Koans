@@ -14,7 +14,7 @@ jobs:
             root: /root/project/app
             paths: linux
         - store_artifacts:
-          path: /root/project/app/linux
+            path: /root/project/app/linux
 
   build-windows:
     docker:
@@ -30,7 +30,7 @@ jobs:
             root: /root/project/app
             paths: windows
         - store_artifacts:
-          path: /root/project/app/windows
+            path: /root/project/app/windows
 
   build-mac:
       docker:
@@ -46,7 +46,7 @@ jobs:
             root: /root/project/app
             paths: mac
         - store_artifacts:
-          path: /root/project/app/mac
+            path: /root/project/app/mac
 
   deploy:
       docker:
