@@ -13,6 +13,8 @@ jobs:
         - persist_to_workspace: 
             root: /root/project/app
             paths: linux
+        - store_artifacts:
+          path: /root/project/app/linux
 
   build-windows:
     docker:
@@ -27,6 +29,8 @@ jobs:
         - persist_to_workspace: 
             root: /root/project/app
             paths: windows
+        - store_artifacts:
+          path: /root/project/app/windows
 
   build-mac:
       docker:
@@ -41,6 +45,8 @@ jobs:
         - persist_to_workspace: 
             root: /root/project/app
             paths: mac
+        - store_artifacts:
+          path: /root/project/app/mac
 
   deploy:
       docker:
