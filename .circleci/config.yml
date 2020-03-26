@@ -53,7 +53,7 @@ jobs:
         - image: node
       steps:
         - attach_workspace:
-            at: /tmp/workspaces
+            at: /tmp/workspaces/app
         - store_artifacts: # See circleci.com/docs/2.0/artifacts/ for more details.
             path: /tmp/workspaces/app
             destination: apps
