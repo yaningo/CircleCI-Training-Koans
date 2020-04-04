@@ -28,12 +28,16 @@ workflows:
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /.*/  
       - test:
           requires:
             - build
           filters:
             tags:
               only: /.*/
+            branches:
+              ignore: /.*/              
       - deploy:
           requires:
             - test
@@ -41,3 +45,5 @@ workflows:
             tags:
               only:
                 - /.*beta-.*/
+            branches:
+              ignore: /.*/                
