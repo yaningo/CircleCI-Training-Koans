@@ -21,7 +21,7 @@ jobs:
                    echo codecoverage
                    echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
-                   set "pipeline.parameters.foobar = << pipeline.parameters.foo >> && << pipeline.parameters.bar >>"
+                   pipeline.parameters.foobar = << pipeline.parameters.foo >> && << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foobar >>
   binary-size:
     docker:
