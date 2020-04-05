@@ -1,43 +1,13 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine. See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
-
-parameters:
-  foo:
-    type: boolean
-    default: true
-  bar:
-    type: boolean
-    default: false
-
-jobs:
-  codecoverage:
-    docker:
-      - image: circleci/node
-    steps:
-      - run:
-          command: |
-                   echo codecoverage
-                   echo $PASS_SECRET
-                   echo "What the fork"
-  binary-size:
-    docker:
-      - image: circleci/node
-    steps:
-      - run:
-          command: |
-                   echo binary-size
+# Use a package of configuration called an orb.
+orbs:
+  # Declare a dependency on the welcome-orb
+  welcome: circleci/welcome-orb@0.4.1
+# Orchestrate or schedule a set of jobs
 workflows:
-  version: 2
-  android-navigation:
-    when: << pipeline.parameters.bar >>
+  # Name the workflow "welcome"
+  welcome:
+    # Run the welcome/run job in its own container
     jobs:
-      - codecoverage
-      - binary-size:
-          requires: 
-            - codecoverage
-  android-maps:
-    when: << pipeline.parameters.foo >>
-    jobs:
-      - binary-size    
-      - codecoverage:
-          requires:
-            - binary-size
+      - welcome/run
