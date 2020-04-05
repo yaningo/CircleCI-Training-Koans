@@ -11,13 +11,13 @@ parameters:
 jobs:
   codecoverage:
     docker:
-      - image: circleci/base
+      - image: circleci/node
     steps:
       - run:
           command: echo codecoverage
   binary-size:
     docker:
-      - image: circleci/base
+      - image: circleci/node
     steps:
       - run:
           command: echo binary-size
