@@ -30,9 +30,11 @@ jobs:
 workflows:
   version: 2
   android-navigation:
-    when: << pipeline.parameters.foo >>
+    when: |
+     - all
+         << pipeline.parameters.foo >>
+         << pipeline.parameters.bar >>
     jobs:
-      when: << pipeline.parameters.bar >>
       - codecoverage
       - binary-size:
           requires: 
