@@ -21,7 +21,7 @@ jobs:
                    echo codecoverage
                    echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
-                   set foobar = (<< pipeline.parameters.foo >> * << pipeline.parameters.bar >>)
+                   let pipeline.parameters.foobar = (<< pipeline.parameters.foo >> * << pipeline.parameters.bar >>)""
                    echo << pipeline.parameters.foobar >>
   binary-size:
     docker:
@@ -32,7 +32,7 @@ jobs:
                    echo binary-size
                    echo << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foo >>
-                   set foobar = << pipeline.parameters.foo >> * << pipeline.parameters.bar >>
+                   let pipeline.parameters.foobar = (<< pipeline.parameters.foo >> * << pipeline.parameters.bar >>)""
                    echo << pipeline.parameters.foobar >>
 workflows:
   version: 2
