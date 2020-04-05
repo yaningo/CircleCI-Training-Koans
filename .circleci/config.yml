@@ -16,8 +16,7 @@ jobs:
       - run:
           command: |
                    echo codecoverage
-                   echo << pipeline.parameters.foo >>
-                   echo << pipeline.parameters.bar >>
+                   echo $PASS_SECRET
   binary-size:
     docker:
       - image: circleci/node
@@ -25,12 +24,10 @@ jobs:
       - run:
           command: |
                    echo binary-size
-                   echo << pipeline.parameters.bar >>
-                   echo << pipeline.parameters.foo >>
 workflows:
   version: 2
   android-navigation:
-    when: << pipeline.parameters.foo >> == << pipeline.parameters.bar >>
+    when: << pipeline.parameters.bar >>
     jobs:
       - codecoverage
       - binary-size:
