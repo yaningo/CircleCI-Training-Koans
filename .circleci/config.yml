@@ -24,13 +24,12 @@ jobs:
 
 workflows:
   version: 2
-    when:
-      - << pipeline.parameters.foo >>
-      - << pipeline.parameters.bar >>
+  android-navigation:
+    when: << pipeline.parameters.bar >>
     jobs:
       - codecoverage
       - binary-size
-
+  android-maps:
     when: << pipeline.parameters.foo >>
     jobs:
       - codecoverage
