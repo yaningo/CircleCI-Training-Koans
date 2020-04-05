@@ -2,14 +2,11 @@ version: 2.1
 
 parameters:
   foo:
-    type: integer
-    default: 1
+    type: boolean
+    default: true
   bar:
-    type: integer
-    default: 0
-  foobar:
-    type: integer
-    default: 1
+    type: boolean
+    default: false
 
 jobs:
   codecoverage:
@@ -21,7 +18,6 @@ jobs:
                    echo codecoverage
                    echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
-                   let "pipelines.parameters.foobar = << pipeline.parameters.foo >> * << pipeline.parameters.bar >>"
                    echo << pipeline.parameters.foobar >>
   binary-size:
     docker:
@@ -32,13 +28,12 @@ jobs:
                    echo binary-size
                    echo << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foo >>
-                   let "pipelines.parameters.foobar = << pipeline.parameters.foo >> * << pipeline.parameters.bar >>"
                    echo << pipeline.parameters.foobar >>
 workflows:
   version: 2
   android-navigation:
-    when: -|
-      << pipeline.parameters.foobar >>
+    when: << pipeline.parameters.foo >>
+    unless: << pipeline.parameters.bar >>
     jobs:
       - codecoverage
       - binary-size:
