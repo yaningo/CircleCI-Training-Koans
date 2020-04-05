@@ -2,14 +2,14 @@ version: 2.1
 
 parameters:
   foo:
-    type: boolean
-    default: true
+    type: integer
+    default: 1
   bar:
-    type: boolean
-    default: false
+    type: integer
+    default: 0
   foobar:
-    type: boolean
-    default: [[foo && bar]]
+    type: integer
+    default: 1
 
 jobs:
   codecoverage:
@@ -21,6 +21,7 @@ jobs:
                    echo codecoverage
                    echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
+                   let "pipelines.parameters.foobar = << pipeline.parameters.foo >> * << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foobar >>
   binary-size:
     docker:
@@ -31,6 +32,7 @@ jobs:
                    echo binary-size
                    echo << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foo >>
+                   let "pipelines.parameters.foobar = << pipeline.parameters.foo >> * << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foobar >>
 workflows:
   version: 2
