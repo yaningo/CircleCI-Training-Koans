@@ -17,7 +17,7 @@ jobs:
           command: |
                    echo codecoverage
                    echo $PASS_SECRET
-                   echo "What the fork"
+                   echo "After CCI sign up"
   binary-size:
     docker:
       - image: circleci/node
