@@ -15,8 +15,8 @@ jobs:
           command: echo codecoverage
   binary-size:
     steps:
-    - run:
-        command: echo binary-size
+      - run:
+          command: echo binary-size
 
 workflows:
   version: 2
