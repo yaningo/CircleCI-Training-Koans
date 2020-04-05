@@ -9,7 +9,7 @@ parameters:
     default: false
   foobar:
     type: boolean
-    default: foo && bar
+    default: [[foo && bar]]
 
 jobs:
   codecoverage:
