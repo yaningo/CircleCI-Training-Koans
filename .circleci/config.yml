@@ -7,9 +7,7 @@ parameters:
   bar:
     type: boolean
     default: false
-  foobar:
-    type: boolean
-    default: true
+  foobar: foo && bar
 
 jobs:
   codecoverage:
@@ -21,7 +19,6 @@ jobs:
                    echo codecoverage
                    echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
-                   << pipeline.parameters.foobar >> = << pipeline.parameters.foo >> && << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foobar >>
   binary-size:
     docker:
@@ -32,7 +29,6 @@ jobs:
                    echo binary-size
                    echo << pipeline.parameters.bar >>
                    echo << pipeline.parameters.foo >>
-                   set "pipeline.parameters.foobar = << pipeline.parameters.foo >> && << pipeline.parameters.bar >>"
                    echo << pipeline.parameters.foobar >>
 workflows:
   version: 2
