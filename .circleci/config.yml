@@ -17,7 +17,7 @@ jobs:
           command: |
                    echo codecoverage
                    echo $PASS_SECRET
-                   echo "Build the fork when PR"
+                   echo "Not trusting you"
   binary-size:
     docker:
       - image: circleci/node
