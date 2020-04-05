@@ -36,10 +36,12 @@ workflows:
     jobs:
       - codecoverage
       - binary-size
-          requires: codecoverage
+          requires: 
+            - codecoverage
   android-maps:
     when: << pipeline.parameters.foo >>
     jobs:
       - binary-size    
       - codecoverage
-          requires: binary-size
+          requires:
+            - binary-size
