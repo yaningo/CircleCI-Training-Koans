@@ -30,7 +30,7 @@ jobs:
 workflows:
   version: 2
   android-navigation:
-    when: |
+    when:
      - and
          << pipeline.parameters.foo >>
          << pipeline.parameters.bar >>
