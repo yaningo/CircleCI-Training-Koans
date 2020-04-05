@@ -10,10 +10,14 @@ parameters:
 
 jobs:
   codecoverage:
+    docker:
+      - image: circleci/base
     steps:
       - run:
           command: echo codecoverage
   binary-size:
+    docker:
+      - image: circleci/base
     steps:
       - run:
           command: echo binary-size
