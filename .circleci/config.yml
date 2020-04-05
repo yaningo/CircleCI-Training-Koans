@@ -1,36 +1,34 @@
 version: 2.1
 
+parameters:
+  foo:
+    type: boolean
+    default: true
+  bar:
+    type: boolean
+    default: false
+
 jobs:
-  build:
-    docker:
-      - image: circleci/node
+  codecoverage:
     steps:
-      - checkout
-      - run: echo "Building complete"
-  test-production:
-    docker:
-      - image: circleci/node
+      - run:
+          command: echo codecoverage
+  binary-size:
     steps:
-      - checkout
-      - run: echo "Testing complete"
-  deploy:
-    docker:
-      - image: circleci/node
-    steps:
-      - checkout
-      - run: echo "Deploy complete"
+    - run:
+        command: echo binary-size
 
 workflows:
   version: 2
-  build-test-and-deploy:
+  android-navigation:
+    when:
+      - << pipeline.parameters.foo >>
+      - << pipeline.parameters.bar >>
     jobs:
-      - build
-      - test-production:
-          requires:
-            - build
-      - deploy:
-          requires:
-            - test-production
-          filters:
-            branches:
-              only: production    
+      - codecoverage
+      - binary-size
+  android-maps:
+    when: << pipeline.parameters.foo >>
+    jobs:
+      - codecoverage
+      - binary-size
