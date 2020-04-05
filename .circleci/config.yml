@@ -14,24 +14,32 @@ jobs:
       - image: circleci/node
     steps:
       - run:
-          command: echo codecoverage
+          command: |
+                   echo codecoverage
+                   echo << pipeline.parameters.foo >>
+                   echo << pipeline.parameters.bar >>
   binary-size:
     docker:
       - image: circleci/node
     steps:
       - run:
-          command: echo binary-size
-
+          command: |
+                   echo binary-size
+                   echo << pipeline.parameters.foo >>
+                   echo << pipeline.parameters.bar >>
 workflows:
   version: 2
   android-navigation:
     when: |
-      << pipeline.parameters.bar >> && << pipeline.parameters.foo >>
+      << pipeline.parameters.bar >>
+      << pipeline.parameters.foo >>
     jobs:
       - codecoverage
       - binary-size
+          requires: codecoverage
   android-maps:
     when: << pipeline.parameters.foo >>
     jobs:
       - binary-size    
       - codecoverage
+          requires: binary-size
