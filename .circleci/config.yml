@@ -7,7 +7,9 @@ parameters:
   bar:
     type: boolean
     default: false
-  foobar: foo && bar
+  foobar:
+    type: boolean
+    default: foo && bar
 
 jobs:
   codecoverage:
