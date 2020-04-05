@@ -25,8 +25,8 @@ jobs:
       - run:
           command: |
                    echo binary-size
-                   echo << pipeline.parameters.foo >>
                    echo << pipeline.parameters.bar >>
+                   echo << pipeline.parameters.foo >>
 workflows:
   version: 2
   android-navigation:
@@ -35,13 +35,13 @@ workflows:
       << pipeline.parameters.foo >>
     jobs:
       - codecoverage
-      - binary-size
+      - binary-size:
           requires: 
             - codecoverage
   android-maps:
     when: << pipeline.parameters.foo >>
     jobs:
       - binary-size    
-      - codecoverage
+      - codecoverage:
           requires:
             - binary-size
