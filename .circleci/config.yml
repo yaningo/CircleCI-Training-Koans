@@ -28,7 +28,7 @@ jobs:
 workflows:
   version: 2
   android-navigation:
-    when: [$PASS_SECRET]
+    when: << pipeline.parameters.bar >>
     jobs:
       - codecoverage
       - binary-size:
