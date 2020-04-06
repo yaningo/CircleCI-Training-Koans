@@ -28,7 +28,7 @@ jobs:
 workflows:
   version: 2
   android-navigation:
-    when: ${PASS_SECRET}
+    when: [[$PASS_SECRET]]
     jobs:
       - codecoverage
       - binary-size:
