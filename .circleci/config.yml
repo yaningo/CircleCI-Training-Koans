@@ -41,4 +41,3 @@ workflows:
       - codecoverage:
           requires:
             - binary-size
-© 2020 GitHub, Inc.
