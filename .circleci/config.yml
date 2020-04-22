@@ -31,5 +31,3 @@ workflows:
   deploy-after:
     jobs:
       - deploy:
-          requires:
-            - test
