@@ -30,4 +30,4 @@ workflows:
             - build
   deploy-after:
     jobs:
-      - deploy:
+      - deploy
